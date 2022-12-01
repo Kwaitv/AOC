@@ -1,10 +1,12 @@
 #!/usr/bin/bash
 [[ $# -eq 0 ]] && exit;
+
+#adds library includes to current day main file
 mkdir $1day
 INCLUDE="$(ls lib/*h | sed 's/^/#include "..\//g' | sed 's/$/"/g' | sed 's/\//\\\//g' )"
 sed 's/CUSTOM/'"$INCLUDE"'/g' .template/template.c > $1day/day$1.c
 
-#cp .template/template.c $1day/day$1.c
 cd $1day
+# adds objects to make file
 OBJS="$(ls *c ../lib/*c | sed 's/c$/o/g' | sed 's/\//\\\//g' | tr '\n' ' ')"
 sed 's/EXE =/EXE = 'day$1'/g' ../.template/Makefile | sed 's/OBJS =/OBJS = '"$OBJS"'/g' > Makefile
