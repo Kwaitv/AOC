@@ -1,2 +1,6 @@
 #!/usr/bin/bash
-cp -r .template $1
+mkdir $1
+cp lib/* $1/
+cp .template/template.c $1/$2.c
+cd $1
+sed 's/EXE =/EXE = '$2'/g' ../.template/Makefile | sed 's/OBJS =/OBJS = '"$(ls *c | sed 's/c$/o/g' | tr '\n' ' ')"'/g' > Makefile
