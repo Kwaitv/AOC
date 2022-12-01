@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "libvec.h"
+CUSTOM
 
 int main(int argc, char* argv[]){
 

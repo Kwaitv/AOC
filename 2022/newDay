@@ -1,6 +1,10 @@
 #!/usr/bin/bash
+[[ $# -eq 0 ]] && exit;
 mkdir $1day
-ln lib/* $1day/
-cp .template/template.c $1day/day$1.c
+INCLUDE="$(ls lib/*h | sed 's/^/#include "..\//g' | sed 's/$/"/g' | sed 's/\//\\\//g' )"
+sed 's/CUSTOM/'"$INCLUDE"'/g' .template/template.c > $1day/day$1.c
+
+#cp .template/template.c $1day/day$1.c
 cd $1day
-sed 's/EXE =/EXE = 'day$1'/g' ../.template/Makefile | sed 's/OBJS =/OBJS = '"$(ls *c | sed 's/c$/o/g' | tr '\n' ' ')"'/g' > Makefile
+OBJS="$(ls *c ../lib/*c | sed 's/c$/o/g' | sed 's/\//\\\//g' | tr '\n' ' ')"
+sed 's/EXE =/EXE = 'day$1'/g' ../.template/Makefile | sed 's/OBJS =/OBJS = '"$OBJS"'/g' > Makefile

@@ -1,8 +1,8 @@
 #ifndef _LIBVEC_H
-#include <stddef.h>
 
 
 #define _LIBVEC_H
+#include <stddef.h>
 
 // int vector struct
 typedef struct vector {
