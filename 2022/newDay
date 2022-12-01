@@ -1,6 +1,6 @@
 #!/usr/bin/bash
-mkdir $1
-cp lib/* $1/
-cp .template/template.c $1/$2.c
-cd $1
-sed 's/EXE =/EXE = '$2'/g' ../.template/Makefile | sed 's/OBJS =/OBJS = '"$(ls *c | sed 's/c$/o/g' | tr '\n' ' ')"'/g' > Makefile
+mkdir $1day
+cp lib/* $1day/
+cp .template/template.c $1day/day$1.c
+cd $1day
+sed 's/EXE =/EXE = 'day$1'/g' ../.template/Makefile | sed 's/OBJS =/OBJS = '"$(ls *c | sed 's/c$/o/g' | tr '\n' ' ')"'/g' > Makefile
