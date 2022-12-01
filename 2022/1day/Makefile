@@ -4,7 +4,7 @@ OBJS = day1.o
 CC = gcc
 DEBUG = -g
 WARN = -Wall -Wextra
-CFLAGS = -O2 -I. $(DEBUG) $(WARN)
+CFLAGS = -O3 -I. $(DEBUG) $(WARN)
 LIBS = 
 .PHONY: clean
 
