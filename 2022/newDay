@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 mkdir $1day
-cp lib/* $1day/
+ln lib/* $1day/
 cp .template/template.c $1day/day$1.c
 cd $1day
 sed 's/EXE =/EXE = 'day$1'/g' ../.template/Makefile | sed 's/OBJS =/OBJS = '"$(ls *c | sed 's/c$/o/g' | tr '\n' ' ')"'/g' > Makefile
