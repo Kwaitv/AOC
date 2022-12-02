@@ -13,6 +13,7 @@ int main(int argc, char* argv[]){
 
 	long unsigned int head = 0;
 	while((read = getline( &line, &len, fp)) != -1){
+		printf("%s", line);
 	}
 	 
 	printf("ans: %d\n", head);
