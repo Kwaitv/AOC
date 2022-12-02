@@ -4,6 +4,7 @@
 #include <string.h>
 
 #include "../lib/libvec.h"
+#define DEBUG 0
 
 // a roc b paper c scissors
 // response 2nd collumn
@@ -19,7 +20,9 @@ int main(int argc, char* argv[]){
 	fp = fopen(argv[1], "r");
 	while((read = getline( &line, &len, fp)) != -1){
 		int add = 0;
+	#if DEBUG
 		printf("%s", line);
+	#endif
 		line[0]-=65;
 		line[2]-=88;
 
@@ -30,7 +33,9 @@ int main(int argc, char* argv[]){
 		} else if (line[2]==(line[0]+1)%3){
 			add +=6;
 		}
+	#if DEBUG
 		printf("--%d %d head: %d\n", (int)line[0], (int) line[2], add);
+	#endif
 		head += add;
 		
 	}
@@ -50,7 +55,9 @@ int main(int argc, char* argv[]){
 	fp = fopen(argv[1], "r");
 	while((read = getline( &line, &len, fp)) != -1){
 		int add = 0;
+	#if DEBUG
 		printf("%s", line);
+	#endif
 		line[0]-=65;
 		line[2]-=88;
 
@@ -69,7 +76,9 @@ int main(int argc, char* argv[]){
 			break;
 		}
 
+	#if DEBUG
 		printf("--%d %d head: %d\n", (int)line[0], (int) line[2], add);
+	#endif
 		head += add;
 		
 	}
