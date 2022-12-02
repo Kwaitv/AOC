@@ -17,7 +17,7 @@ int main(int argc, char* argv[]){
 
 	long unsigned int head = 0;
 	fp = fopen(argv[1], "r");
-	while((read = getline( &line, &len, fp)) != 1){
+	while((read = getline( &line, &len, fp)) != -1){
 		int add = 0;
 		printf("%s", line);
 		line[0]-=65;
@@ -48,7 +48,7 @@ int main(int argc, char* argv[]){
 
 	long unsigned int head = 0;
 	fp = fopen(argv[1], "r");
-	while((read = getline( &line, &len, fp)) != 1){
+	while((read = getline( &line, &len, fp)) != -1){
 		int add = 0;
 		printf("%s", line);
 		line[0]-=65;
